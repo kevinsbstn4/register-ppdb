@@ -1,22 +1,6 @@
 <?php
     include_once("koneksi.php");
-   if(isset($_POST['btndaftar'])) {
-       $namapendaftar = mysqli_real_escape_string($koneksi, trim($_POST['nama_pendaftar']));
-       $tempatlahir = mysqli_real_escape_string($koneksi, trim($_POST['tempat_lahir']));
-       $tanggallahir = mysqli_real_escape_string($koneksi, trim($_POST['tanggal_lahir']));
-       $alamat = mysqli_real_escape_string($koneksi, trim($_POST['alamat']));
-       $alamatkecamatan = mysqli_real_escape_string($koneksi, trim($_POST['alamat_kecamatan']));
-       $alamatkabupaten = mysqli_real_escape_string($koneksi, trim($_POST['alamat_kabupaten']));
-       $alamatprovinsi = mysqli_real_escape_string($koneksi, trim($_POST['alamat_provinsi']));
-       $kodepos = mysqli_real_escape_string($koneksi, trim($_POST['kode_pos']));
-       $asalsekolah = mysqli_real_escape_string($koneksi, trim($_POST['asal_sekolah']));
-       $sqltotal = mysqli_query($connect,"INSERT INTO tabel_nota(nama_pendaftar,tempat_lahir,tanggal_lahir,alamat,alamat_kecamatan,alamat_kabupaten,alamat_provinsi,kode_pos,asal_sekolah) VALUES('$namapendaftar','$tempatlahir','$tanggallahir','$alamat','$alamatkecamatan','$alamatkabupaten','$alamatprovinsi','$kodepos','$asalsekolah')");
-
-
-
-   }
-?> 
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +13,10 @@
 <body style="background-image:url(''); background-size: cover;">
 <center>
 <div class="card" style="width: 700px; margin-top: 50px; margin-bottom: 50px; ">
-    <form style="background-color: yellow;" action="ceklogin.php" method="post">
+    <form style="background-color: yellow;" action="" method="post">
     <div style="background-color: black; color: white; " class="card-header">
     <h1>Form Pendaftaran</h1> 
-    </div>
+    </div><br>
     Nama Pendaftar <br>
       <input  type="text" name="nama_pendaftar"  />
         <br /><br>
@@ -59,10 +43,30 @@
         Asal Sekolah <br>
        <input  type="text" name="asal_sekolah"  />
         <br /> <br />
-        <button style="margin-bottom: 10px;" type="submit" class="btn btn-dark">Kirim</button>
+        <button style="margin-bottom: 10px;" type="submit" name="btnkirim" class="btn btn-dark">Kirim</button>
         <br />
+      
     </form>
     </div>
     </center>
+
 </body>
 </html>
+
+<?php
+    include_once("koneksi.php");
+   if(isset($_POST['btnkirim'])) {
+      $nama_pendaftar = $_POST['nama_pendaftar'];
+      $tempat_lahir = $_POST['tempat_lahir'];
+      $alamat = $_POST['alamat'];
+      $alamat_kecamatan = $_POST['alamat_kecamatan'];
+      $alamat_kabupaten = $_POST['alamat_kabupaten'];
+      $alamat_provinsi = $_POST['alamat_provinsi'];
+      $kode_pos = $_POST['kode_pos'];
+      $asal_sekolah = $_POST['asal_sekolah'];
+
+      mysqli_query($koneksi,"INSERT INTO tabel_pendaftaran(nama_pendaftar,tempat_lahir,alamat,alamat_kecamatan,alamat_kabupaten,alamat_provinsi,kode_pos,asal_sekolah) VALUES('$nama_pendaftar','$tempat_lahir','$alamat','$alamat_kecamatan','$alamat_kabupaten','$alamat_provinsi','$kode_pos','$asal_sekolah')");
+      header("location:'home.php'");
+     
+   }
+?> 
