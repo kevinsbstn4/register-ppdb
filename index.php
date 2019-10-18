@@ -54,10 +54,12 @@
 </html>
 
 <?php
+    $koneksi = mysqli_connect("localhost","kevin","123","database_ppdb");
     include_once("koneksi.php");
    if(isset($_POST['btnkirim'])) {
       $nama_pendaftar = $_POST['nama_pendaftar'];
       $tempat_lahir = $_POST['tempat_lahir'];
+      $tanggal_lahir=$_POST['tanggal_lahir'];
       $alamat = $_POST['alamat'];
       $alamat_kecamatan = $_POST['alamat_kecamatan'];
       $alamat_kabupaten = $_POST['alamat_kabupaten'];
@@ -65,8 +67,8 @@
       $kode_pos = $_POST['kode_pos'];
       $asal_sekolah = $_POST['asal_sekolah'];
 
-      mysqli_query($koneksi,"INSERT INTO tabel_pendaftaran(nama_pendaftar,tempat_lahir,alamat,alamat_kecamatan,alamat_kabupaten,alamat_provinsi,kode_pos,asal_sekolah) VALUES('$nama_pendaftar','$tempat_lahir','$alamat','$alamat_kecamatan','$alamat_kabupaten','$alamat_provinsi','$kode_pos','$asal_sekolah')");
-      header("location:'home.php'");
+      mysqli_query($koneksi,"INSERT INTO tabel_pendaftaran (nama_pendaftar,tempat_lahir,tanggal_lahir,alamat,alamat_kecamatan,alamat_kabupaten,alamat_provinsi,kode_pos,asal_sekolah) VALUES('$nama_pendaftar','$tempat_lahir','$tanggal_lahir','$alamat','$alamat_kecamatan','$alamat_kabupaten','$alamat_provinsi','$kode_pos','$asal_sekolah')");
+      header("location:home.php");
      
-   }
+   } 
 ?> 
