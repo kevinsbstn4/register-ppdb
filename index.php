@@ -10,5 +10,9 @@ echo $print_data[0];
 echo "\n";
 echo $print_data[1];
 
+if($print_data[1] == "") {
+    header("location:registrasi.php");
+}
+
 
 ?>

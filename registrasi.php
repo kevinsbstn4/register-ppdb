@@ -2,57 +2,102 @@
     include_once("koneksi.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<html>
+  <head>
     <title>Document</title>
-</head>
-<body style="background-image:url(''); background-size: cover;">
-<center>
-<div class="card" style="width: 700px; margin-top: 50px; margin-bottom: 50px; ">
-    <form style="background-color: yellow;" action="" method="post">
-    <div style="background-color: black; color: white; " class="card-header">
-    <h1>Form Pendaftaran</h1> 
-    </div><br>
-    Nama Pendaftar <br>
-      <input  type="text" name="nama_pendaftar"  />
-        <br /><br>
-      Tempat Lahir <br>
-      <input  type="text" name="tempat_lahir"  />
-        <br /><br>
-        Tanggal Lahir <br>
-       <input style="margin-top:10px; " type="date" name="tanggal_lahir"  />
-        <br /><br>
-        Alamat <br>
-       <input  type="text" name="alamat" />
-        <br /><br>
-        Alamat Kecamatan <br>
-       <input  type="text" name="alamat_kecamatan"  />
-        <br /><br>
-        Alamat Kabupaten <br>
-       <input  type="text" name="alamat_kabupaten"  />
-        <br /><br>
-        Alamat Provinsi <br>
-       <input  type="text" name="alamat_provinsi"  />
-        <br><br>
-        Kode Pos <br>
-       <input  type="text" name="kode_pos" /><br><br>
-        Asal Sekolah <br>
-       <input  type="text" name="asal_sekolah"  />
-        <br /> <br />
-        <button style="margin-bottom: 10px;" type="submit" name="btnkirim" class="btn btn-dark">Kirim</button>
-        <br />
-      
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      button {
+      background-color: #8ebf42;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: left;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form style="width:50%;" action="" method="post">
+      <h1>Form Registrasi</h1>
+      <div class="formcontainer">
+      <hr/>
+      <div class="container">
+        <label for="username"><strong>Username</strong></label>
+        <input type="text" placeholder="Buat username kamu" name="usernames" required>
+        <label for="asal_"><strong>Password</strong></label>
+        <input type="text" placeholder="Buat Password kamu" name="passwords" required>
+        <label for="nama_pendaftar"><strong>Nama Pendaftar</strong></label>
+        <input type="text" placeholder="Masukkan nama pendaftar" name="nama_pendaftar" required>
+        <label for="tempat_lahir"><strong>Tempat Lahir</strong></label>
+        <input type="text" placeholder="Masukkan tempat lahir" name="tempat_lahir" required>
+        <label for="tanggal_lahir"><strong>Tanggal Lahir</strong></label><br><br>
+        <input type="date"  name="tanggal_lahir" required><br><br>
+        <label for="alamat"><strong>Alamat</strong></label>
+        <input type="text" placeholder="Masukkan Alamat" name="alamat" required>
+        <label for="alamat_kecamatan"><strong>Alamat Kecamatan</strong></label>
+        <input type="text" placeholder="Masukkan alamat kecamatan" name="alamat_kecamatan" required>
+        <label for="alamat_kabupaten"><strong>Alamat Kabupaten</strong></label>
+        <input type="text" placeholder="Masukkan alamat kabupaten" name="alamat_kabupaten" required>
+        <label for="alamat_provinsi"><strong>Alamat Provinsi</strong></label>
+        <input type="text" placeholder="Masukkan alamat provinsi" name="alamat_provinsi" required>
+        <label for="kode_pos"><strong>Kode Pos</strong></label>
+        <input type="text" placeholder="Masukkan kode pos" name="kode_pos" required>
+        <label for="asal_sekolah"><strong>Asal Sekolah</strong></label>
+        <input type="text" placeholder="Masukkan asal sekolah" name="asal_sekolah" required>
+        
+      </div>
+      <button type="submit" name="btnkirim">Registrasi</button>
+      <center>
+      sudah punya akun?  <a href="login.php">login</a>
+      </center>
     </form>
-    </div>
-    </center>
-
-</body>
+  </body>
 </html>
-
 <?php
   
     $koneksi = mysqli_connect("localhost","kevin","123","database_ppdb");
@@ -67,11 +112,12 @@
       $alamat_provinsi = $_POST['alamat_provinsi'];
       $kode_pos = $_POST['kode_pos'];
       $asal_sekolah = $_POST['asal_sekolah'];
+      $passwords = $_POST['passwords'];
+      $usernames = $_POST['usernames'];
 
+      mysqli_query($koneksi,"INSERT INTO tabel_users (nama_lengkap,usernames,passwords,birthdate) VALUES('$nama_pendaftar','$usernames','$passwords','$tanggal_lahir')");
       mysqli_query($koneksi,"INSERT INTO tabel_pendaftaran (nama_pendaftar,tempat_lahir,tanggal_lahir,alamat,alamat_kecamatan,alamat_kabupaten,alamat_provinsi,kode_pos,asal_sekolah) VALUES('$nama_pendaftar','$tempat_lahir','$tanggal_lahir','$alamat','$alamat_kecamatan','$alamat_kabupaten','$alamat_provinsi','$kode_pos','$asal_sekolah')");
-      header("location:home.php");
+      header("location:login.php");
      
-   } else {
-     echo'<script>alert("gagal registrasi")</script>';
    }
 ?> 

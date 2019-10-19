@@ -1,3 +1,7 @@
+<?php 
+    include_once("koneksi.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +12,9 @@
 </head>
 <body>
     Berhasil Registrasi
+    <button type="submit" name="btnlogout">Logout</button>
+<?php 
+    
+?>
 </body>
 </html>
