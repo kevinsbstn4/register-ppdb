@@ -13,6 +13,9 @@ echo $print_data[1];
 if($print_data[1] == "") {
     header("location:registrasi.php");
 }
+else{
+    
+}
 
 
 ?>

@@ -116,6 +116,7 @@
       $usernames = $_POST['usernames'];
 
       mysqli_query($koneksi,"INSERT INTO tabel_users (nama_lengkap,usernames,passwords,birthdate) VALUES('$nama_pendaftar','$usernames','$passwords','$tanggal_lahir')");
+      
       mysqli_query($koneksi,"INSERT INTO tabel_pendaftaran (nama_pendaftar,tempat_lahir,tanggal_lahir,alamat,alamat_kecamatan,alamat_kabupaten,alamat_provinsi,kode_pos,asal_sekolah) VALUES('$nama_pendaftar','$tempat_lahir','$tanggal_lahir','$alamat','$alamat_kecamatan','$alamat_kabupaten','$alamat_provinsi','$kode_pos','$asal_sekolah')");
       header("location:login.php");
      
